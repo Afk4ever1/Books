@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>My Books</title>
+</head>
+<body>
+    <div class="header">
+        <h1>My Books</h1>
+    </div>
+    
+    <div class="container">
+        <% for (let book of books){ %>
+            <!-- check if the books is in arabic -->
+            <% if (/^[\u0600-\u06FF]/.test(books.title) == true) { %>
+        <form action="/details" id="<%=book.book_id %>" method="POST" onclick="document.getElementById(id).submit()" >
+            <input type="hidden" name="google_id" value="<%=book.google_id %>">
+            <img src='<%= book.cover_url %>' alt="book cover" width="250" height="350" >
+            <div class="description">
+            <span dir="rtl"><%= book.title%></span>
+            <span dir="rtl">كتابة <strong><%= books.author%></strong></span>
+        </div>
+        </form>
+        <% }else{ %>
+            <form action="/details" id="<%=book.book_id %>" method="POST" onclick="document.getElementById(id).submit()" >
+                <input type="hidden" name="google_id" value="<%=book.google_id %>">
+                <img src='<%= book.cover_url %>' alt="book cover" width="250" height="350" title="<%=book.google_id %>" >
+                <div class="description">
+                <span ><%= book.title%></span>
+                <span >by <strong><%= book.author%></strong></span>
+            </div>
+            </form>
+        <% }} %>
+    </div>
+</body>
+</html>

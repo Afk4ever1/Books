@@ -1,0 +1,17 @@
+body{
+    padding: 30px;
+    align-items: center;
+    gap: 10px;
+}
+h1{
+    border-bottom: 2px solid red;
+    width: 600px;
+    text-align: center;
+}
+span{
+    font-size: 2rem;
+}
+.desc{
+    border: 2px solid lightblue;
+    font-size: 1.5rem;
+}
